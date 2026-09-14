@@ -1,0 +1,15 @@
+.mod-agreement-termtext {
+    line-height: 1.65;
+}
+
+.mod-agreement-termtext > :last-child {
+    margin-bottom: 0;
+}
+
+.mod-agreement-version-summary {
+    cursor: pointer;
+}
+
+.mod-agreement-summary .display-6 {
+    font-size: 2rem;
+}

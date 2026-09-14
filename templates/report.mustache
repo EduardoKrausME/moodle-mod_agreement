@@ -1,0 +1,96 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_agreement/report
+
+    Example context (json):
+    {
+        Aqui tem que criar o context em inglês
+    }
+}}
+<div class="mb-4">
+    <a href="{{backurl}}">&larr; {{#str}}backtoagreement, mod_agreement{{/str}}</a>
+</div>
+
+<h3 class="h5">{{#str}}currentstatus, mod_agreement{{/str}} - {{#str}}versionnumber, mod_agreement, {{currentversion}}{{/str}}</h3>
+<div class="row g-3 mb-4 mod-agreement-summary">
+    <div class="col-md-4">
+        <div class="card h-100"><div class="card-body">
+            <div class="text-muted small">{{#str}}agreedcount, mod_agreement{{/str}}</div>
+            <div class="display-6">{{currentagreed}}</div>
+        </div></div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100"><div class="card-body">
+            <div class="text-muted small">{{#str}}disagreedcount, mod_agreement{{/str}}</div>
+            <div class="display-6">{{currentdisagreed}}</div>
+        </div></div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100"><div class="card-body">
+            <div class="text-muted small">{{#str}}pendingcount, mod_agreement{{/str}}</div>
+            <div class="display-6">{{currentpending}}</div>
+        </div></div>
+    </div>
+</div>
+
+<h3 class="h5">{{#str}}versionhistory, mod_agreement{{/str}}</h3>
+<div class="mb-4">
+{{#versions}}
+    <details class="card mb-2" {{#current}}open{{/current}}>
+        <summary class="card-header mod-agreement-version-summary">
+            <strong>{{label}}</strong>{{#current}} <span class="badge bg-primary ms-2">{{#str}}currentversion, mod_agreement{{/str}}</span>{{/current}}
+            <span class="ms-2 text-muted">{{date}}</span>
+            <span class="ms-2">{{#str}}agreedcount, mod_agreement{{/str}}: {{agreed}}</span>
+            <span class="ms-2">{{#str}}disagreedcount, mod_agreement{{/str}}: {{disagreed}}</span>
+        </summary>
+        <div class="card-body">
+            <div class="mod-agreement-termtext mb-3">{{{termhtml}}}</div>
+            <div class="small text-muted"><strong>{{#str}}contenthash, mod_agreement{{/str}}:</strong> <code>{{hash}}</code></div>
+        </div>
+    </details>
+{{/versions}}
+</div>
+
+<h3 class="h5">{{#str}}responsehistory, mod_agreement{{/str}}</h3>
+{{#hasresponses}}
+<div class="table-responsive">
+<table class="table table-striped align-middle">
+    <thead>
+        <tr>
+            <th>{{#str}}participant, mod_agreement{{/str}}</th>
+            <th>{{#str}}version, mod_agreement{{/str}}</th>
+            <th>{{#str}}response, mod_agreement{{/str}}</th>
+            <th>{{#str}}date, mod_agreement{{/str}}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#responses}}
+        <tr>
+            <td><a href="{{userurl}}">{{fullname}}</a></td>
+            <td>{{version}}</td>
+            <td><span class="badge {{#agreed}}bg-success{{/agreed}}{{^agreed}}bg-secondary{{/agreed}}">{{response}}</span></td>
+            <td>{{date}}</td>
+        </tr>
+    {{/responses}}
+    </tbody>
+</table>
+</div>
+{{/hasresponses}}
+{{^hasresponses}}
+<div class="alert alert-info">{{#str}}noresponses, mod_agreement{{/str}}</div>
+{{/hasresponses}}
