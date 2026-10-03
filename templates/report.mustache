@@ -23,7 +23,7 @@
     }
 }}
 <div class="mb-4">
-    <a href="{{backurl}}">&larr; {{#str}}backtoagreement, mod_agreement{{/str}}</a>
+    <a href="{{{backurl}}}">&larr; {{#str}}backtoagreement, mod_agreement{{/str}}</a>
 </div>
 
 <h3 class="h5">{{#str}}currentstatus, mod_agreement{{/str}} - {{#str}}versionnumber, mod_agreement, {{currentversion}}{{/str}}</h3>
@@ -81,7 +81,7 @@
     <tbody>
     {{#responses}}
         <tr>
-            <td><a href="{{userurl}}">{{fullname}}</a></td>
+            <td><a href="{{{userurl}}}">{{fullname}}</a></td>
             <td>{{version}}</td>
             <td><span class="badge {{#agreed}}bg-success{{/agreed}}{{^agreed}}bg-secondary{{/agreed}}">{{response}}</span></td>
             <td>{{date}}</td>
