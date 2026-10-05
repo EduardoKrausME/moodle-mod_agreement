@@ -51,7 +51,10 @@ class restore_agreement_activity_task extends restore_activity_task {
      * @return restore_decode_content[]
      */
     public static function define_decode_contents(): array {
-        return [new restore_decode_content("agreement", ["intro", "termtext"], "agreement")];
+        return [
+            new restore_decode_content("agreement", ["intro", "termtext"], "agreement"),
+            new restore_decode_content("agreement_versions", ["termtext"], "agreement_version"),
+        ];
     }
 
     /**

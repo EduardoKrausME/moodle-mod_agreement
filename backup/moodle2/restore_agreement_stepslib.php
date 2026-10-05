@@ -81,11 +81,13 @@ class restore_agreement_activity_structure_step extends restore_activity_structu
         global $DB;
 
         $data = (object)$data;
+        $oldid = $data->id;
         $data->agreementid = $this->get_new_parentid("agreement");
         $data->versionid = $this->get_new_parentid("agreement_version");
         $data->userid = $this->get_mappingid("user", $data->userid, 0);
         if ($data->userid) {
-            $DB->insert_record("agreement_responses", $data);
+            $newitemid = $DB->insert_record("agreement_responses", $data);
+            $this->set_mapping("agreement_response", $oldid, $newitemid);
         }
     }
 

@@ -62,4 +62,24 @@ class response_recorded extends \core\event\base {
     public function get_url(): \moodle_url {
         return new \moodle_url("/mod/agreement/view.php", ["id" => $this->contextinstanceid]);
     }
+
+    /**
+     * Defines how the event object ID is mapped during restore.
+     *
+     * @return array
+     */
+    public static function get_objectid_mapping() {
+        return ["db" => "agreement_responses", "restore" => "agreement_response"];
+    }
+
+    /**
+     * Defines mappings for IDs stored in the event other data.
+     *
+     * @return array
+     */
+    public static function get_other_mapping() {
+        return [
+            "agreementid" => ["db" => "agreement", "restore" => "agreement"],
+        ];
+    }
 }
