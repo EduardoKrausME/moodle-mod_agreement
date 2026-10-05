@@ -22,6 +22,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+require_once($CFG->dirroot . "/mod/agreement/backup/moodle2/restore_agreement_stepslib.php");
+
 /**
  * Class restore_agreement_activity_task
  */
