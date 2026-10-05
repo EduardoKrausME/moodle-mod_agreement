@@ -63,4 +63,13 @@ class restore_agreement_activity_task extends restore_activity_task {
             new restore_decode_rule("AGREEMENTINDEX", "/mod/agreement/index.php?id=$1", "course"),
         ];
     }
+    /**
+     * Defines restore log rules.
+     *
+     * @return array
+     */
+    public static function define_restore_log_rules(): array {
+        return [];
+    }
+
 }
