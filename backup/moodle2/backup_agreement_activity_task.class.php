@@ -21,6 +21,9 @@
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+require_once($CFG->dirroot . "/mod/agreement/backup/moodle2/backup_agreement_stepslib.php");
+
 class backup_agreement_activity_task extends backup_activity_task {
     /**
      * define_my_settings
